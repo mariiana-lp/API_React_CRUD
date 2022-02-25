@@ -5,7 +5,14 @@ import { useForm } from "react-hook-form";
 const AddUserForm = (props) => {
 
     const { register, errors, handleSubmit } = useForm();
-    const onSubmit = data => console.log(data);
+    const onSubmit = (data, e) => {
+        
+        props.addUser(data);
+        //Limpiar campos
+        e.target.reset();
+    }
+        
+      
 
     return(
         <form onSubmit={handleSubmit(onSubmit)}>
